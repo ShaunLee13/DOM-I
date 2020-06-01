@@ -50,17 +50,17 @@ for(let i = 0; i < navBar.length; i++){
 navBar.forEach(a => {
   a.style.color = 'green';
 });
-console.log(navBar)
+
 
 const header = document.querySelector('.cta-text').children;
 const ctaContent = Object.values(siteContent.cta);
 for(let i = 0; i < header.length; i++){
   header[i].textContent = ctaContent[i];
 }
-
+const heading1 = document.querySelector('h1');
+heading1.innerHTML = `Dom <br> is <br> Awesome`;
 const ctaImg = document.getElementById('cta-img');
 ctaImg.setAttribute('src', ctaContent[2]);
-console.log(header);
 
 
 const mainContent = Object.values(siteContent['main-content']);
@@ -74,4 +74,17 @@ for(let i = 0; i < content2.length; i++){
   content2[i].textContent = mainContent[i + (content1.length +1)];
 }
 mainImg.setAttribute('src', mainContent[4]);
-console.log(content1)
+
+
+const contactContent = Object.values(siteContent.contact);
+const contactInfo = document.querySelector('.contact').children;
+for(let i = 0; i < contactInfo.length; i++){
+  contactInfo[i].textContent = contactContent[i];
+}
+const address = document.querySelector('.contact > p');
+address.innerHTML = `123 Way 456 Street <br> Somewhere, USA`;
+
+
+const footerInfo = document.querySelector('footer > p');
+const footerContent = Object.values(siteContent.footer);
+footerInfo.textContent = footerContent;
