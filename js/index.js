@@ -42,14 +42,36 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 
-const navigation = Object.values(siteContent.nav);
-
+const navContent = Object.values(siteContent.nav);
 const navBar = document.querySelectorAll('nav > a');
-
 for(let i = 0; i < navBar.length; i++){
-  navBar[i].textContent = navigation[i];
+  navBar[i].textContent = navContent[i];
 }
-
 navBar.forEach(a => {
   a.style.color = 'green';
 });
+console.log(navBar)
+
+const header = document.querySelector('.cta-text').children;
+const ctaContent = Object.values(siteContent.cta);
+for(let i = 0; i < header.length; i++){
+  header[i].textContent = ctaContent[i];
+}
+
+const ctaImg = document.getElementById('cta-img');
+ctaImg.setAttribute('src', ctaContent[2]);
+console.log(header);
+
+
+const mainContent = Object.values(siteContent['main-content']);
+const content1 = document.querySelectorAll('.top-content > .text-content >h4,.top-content > .text-content > p' );
+const content2 = document.querySelectorAll('.bottom-content > .text-content >h4,.bottom-content > .text-content > p' );
+const mainImg = document.getElementById('middle-img');
+for(let i = 0; i < content1.length; i++){
+  content1[i].textContent = mainContent[i];
+}
+for(let i = 0; i < content2.length; i++){
+  content2[i].textContent = mainContent[i + (content1.length +1)];
+}
+mainImg.setAttribute('src', mainContent[4]);
+console.log(content1)
