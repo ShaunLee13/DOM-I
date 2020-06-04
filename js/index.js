@@ -40,3 +40,51 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+
+const navContent = Object.values(siteContent.nav);
+const navBar = document.querySelectorAll('nav > a');
+for(let i = 0; i < navBar.length; i++){
+  navBar[i].textContent = navContent[i];
+}
+navBar.forEach(a => {
+  a.style.color = 'green';
+});
+
+
+const header = document.querySelector('.cta-text').children;
+const ctaContent = Object.values(siteContent.cta);
+for(let i = 0; i < header.length; i++){
+  header[i].textContent = ctaContent[i];
+}
+const heading1 = document.querySelector('h1');
+heading1.innerHTML = `Dom <br> is <br> Awesome`;
+const ctaImg = document.getElementById('cta-img');
+ctaImg.setAttribute('src', ctaContent[2]);
+
+
+const mainContent = Object.values(siteContent['main-content']);
+const content1 = document.querySelectorAll('.top-content > .text-content >h4,.top-content > .text-content > p' );
+const content2 = document.querySelectorAll('.bottom-content > .text-content >h4,.bottom-content > .text-content > p' );
+const mainImg = document.getElementById('middle-img');
+for(let i = 0; i < content1.length; i++){
+  content1[i].textContent = mainContent[i];
+}
+for(let i = 0; i < content2.length; i++){
+  content2[i].textContent = mainContent[i + (content1.length +1)];
+}
+mainImg.setAttribute('src', mainContent[4]);
+
+
+const contactContent = Object.values(siteContent.contact);
+const contactInfo = document.querySelector('.contact').children;
+for(let i = 0; i < contactInfo.length; i++){
+  contactInfo[i].textContent = contactContent[i];
+}
+const address = document.querySelector('.contact > p');
+address.innerHTML = `123 Way 456 Street <br> Somewhere, USA`;
+
+
+const footerInfo = document.querySelector('footer > p');
+const footerContent = Object.values(siteContent.footer);
+footerInfo.textContent = footerContent;
